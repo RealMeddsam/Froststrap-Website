@@ -1,173 +1,24 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Froststrap</title>
-  <link rel="icon" type="image/png" href="Froststrap Logo.png">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Froststrap</title>
+    <meta name="description" content="Official Website for Froststrap, a Bloxstrap/Fishstrap fork.">
+    <meta name="author" content="RealMeddsam" />
+    
+    <meta property="og:type" content="website" />
 
-  <!-- External CSS -->
-  <link rel="stylesheet" href="styles.css">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:title" content="Froststrap">
+  <meta name="twitter:title" content="Froststrap">
+  <meta property="og:description" content="Official Website for Froststrap, a Bloxstrap/Fishstrap fork.">
+  <meta name="twitter:description" content="Official Website for Froststrap, a Bloxstrap/Fishstrap fork.">
+  <link rel="icon" type="image/x-icon" href="https://storage.googleapis.com/gpt-engineer-file-uploads/yWjfoCLwuZU2GAUJdAKDvPnwlsh2/uploads/1761043907598-Froststrap updated logo.png">
 </head>
-<body>
-  <!-- Snowflakes -->
-  <div class="snowflakes" aria-hidden="true">
-    <div class="snowflake">❅</div>
-    <div class="snowflake">❆</div>
-    <div class="snowflake">❅</div>
-    <div class="snowflake">❆</div>
-    <div class="snowflake">❅</div>
-    <div class="snowflake">❆</div>
-  </div>
 
-  <header>
-    <a href="#" class="logo">
-      <img src="Froststrap Logo.png" alt="Froststrap Logo">
-      Froststrap
-    </a>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#faq">FAQ</a>
-    </nav>
-  </header>
-
-  <main>
-    <h1 class="main-heading">Froststrap</h1>
-    <p class="main-sub">A fork of Bloxstrap / Fishstrap — lightweight, customizable, and open source.</p>
-
-    <div class="button-row">
-      <a id="download-button" class="btn" href="https://github.com/RealMeddsam/Froststrap/releases/latest"
-        target="_blank" rel="noopener noreferrer" aria-label="Download Froststrap latest release">
-        Download Latest (loading...)
-      </a>
-      <a href="https://github.com/RealMeddsam/Froststrap" target="_blank" class="btn btn-secondary"
-        rel="noopener noreferrer" id="star-button" aria-label="Star Froststrap on GitHub">
-        Star on GitHub
-      </a>
-    </div>
-
-    <div class="badge-row" aria-label="Repository stats">
-      <a href="https://github.com/RealMeddsam/Froststrap/blob/main/LICENSE" target="_blank" class="badge"
-        id="badge-license" rel="noopener noreferrer" aria-label="View License">
-        License: <span>...</span>
-      </a>
-      <a href="https://github.com/RealMeddsam/Froststrap/releases/latest" target="_blank" class="badge"
-        id="badge-latest-downloads" rel="noopener noreferrer" aria-label="View Latest Downloads">
-        Latest Downloads: <span>...</span>
-      </a>
-      <a href="https://github.com/RealMeddsam/Froststrap" target="_blank" class="badge"
-        id="badge-total-downloads" rel="noopener noreferrer" aria-label="View Total Downloads">
-        Total Downloads: <span>...</span>
-      </a>
-    </div>
-
-    <div class="features">
-      <div class="feature-card">
-        <h3 class="feature-title">Bootstrapper</h3>
-        <p class="feature-desc">Lightweight launcher for Roblox with enhanced customization.</p>
-      </div>
-      <div class="feature-card">
-        <h3 class="feature-title">Mod Generator</h3>
-        <p class="feature-desc">Easily generate mods to use for Roblox UI.</p>
-      </div>
-      <div class="feature-card">
-        <h3 class="feature-title">UI & Appearance</h3>
-        <p class="feature-desc">Customize UI with Custom Animated/Gradient backgrounds.</p>
-      </div>
-      <div class="feature-card">
-        <h3 class="feature-title">PC Tweaks</h3>
-        <p class="feature-desc">Use built-in pc tweaks all within the app.</p>
-      </div>
-      <div class="feature-card">
-        <h3 class="feature-title">Game Shortcuts</h3>
-        <p class="feature-desc">Create shortcuts to use to join specific games faster.</p>
-      </div>
-      <div class="feature-card">
-        <h3 class="feature-title">Froststrap RPC</h3>
-        <p class="feature-desc">Froststrap Rich Presence that also tracks the page your on.</p>
-      </div>
-    </div>
-
-    <section class="faq" id="faq">
-      <h2 class="main-heading">Frequently Asked Questions</h2>
-      <div class="faq-item">
-        <h3>How do I install Froststrap?</h3>
-        <p>Download the latest release and run the installer.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Is Froststrap safe?</h3>
-        <p>Yes, it’s completly safe and open source on GitHub.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Where can I get help?</h3>
-        <p>Ask on our <a href="https://discord.gg/KdR9vpRcUN" style="color:var(--accent);text-decoration:none;">Discord server</a> to get the fastest response or open an issue on GitHub.</p>
-      </div>
-    </section>
-
-    <div class="credits">
-      Founder & Developer: <span>Meddsam</span>
-    </div>
-  </main>
-
-  <footer>
-    &copy; 2025 Froststrap. MIT Licensed.
-  </footer>
-
-  <script>
-    // snowflake animation
-    document.addEventListener("DOMContentLoaded", () => {
-      const snowflakes = document.querySelectorAll(".snowflake");
-      snowflakes.forEach((flake) => {
-        flake.style.left = Math.random() * 100 + "vw";
-        flake.style.animationDuration = (Math.random() * 5 + 5) + "s";
-        flake.style.fontSize = (Math.random() * 10 + 10) + "px";
-      });
-    });
-
-    const repoOwner = 'RealMeddsam';
-    const repoName = 'Froststrap';
-
-    const downloadButton = document.getElementById('download-button');
-    const badgeLatest = document.getElementById('badge-latest-downloads').querySelector('span');
-    const badgeTotal = document.getElementById('badge-total-downloads').querySelector('span');
-    const badgeLicense = document.getElementById('badge-license').querySelector('span');
-
-    fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/releases/latest`)
-      .then(res => res.json())
-      .then(data => {
-        const version = data.tag_name || 'latest';
-        downloadButton.textContent = `Download Latest (${version})`;
-
-        let latestDownloadCount = 0;
-        if (data.assets && data.assets.length) {
-          latestDownloadCount = data.assets.reduce((acc, asset) => acc + (asset.download_count || 0), 0);
-        }
-        badgeLatest.textContent = latestDownloadCount.toLocaleString();
-      }).catch(() => {
-        downloadButton.textContent = 'Download Latest (unknown)';
-        badgeLatest.textContent = 'unknown';
-      });
-
-    fetch(`https://api.github.com/repos/${repoOwner}/${repoName}`)
-      .then(res => res.json())
-      .then(data => {
-        badgeLicense.textContent = data.license?.spdx_id || 'Unknown';
-        return fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/releases`);
-      })
-      .then(res => res.json())
-      .then(releases => {
-        let totalDownloads = 0;
-        releases.forEach(release => {
-          if (release.assets && release.assets.length) {
-            totalDownloads += release.assets.reduce((acc, asset) => acc + (asset.download_count || 0), 0);
-          }
-        });
-        badgeTotal.textContent = totalDownloads.toLocaleString();
-      })
-      .catch(() => {
-        badgeLicense.textContent = 'Unknown';
-        badgeTotal.textContent = 'unknown';
-      });
-  </script>
-</body>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
