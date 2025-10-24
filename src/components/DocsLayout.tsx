@@ -23,6 +23,7 @@ const navItems: NavItem[] = [
     children: [
       { title: "Installation", path: "/docs/guide/installation" },
       { title: "Features", path: "/docs/guide/features" },
+      { title: "FastFlags", path: "/docs/guide/fastflags" },
     ],
   },
   {
