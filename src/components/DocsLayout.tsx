@@ -1,11 +1,10 @@
 import { useState, useRef, useEffect } from "react";
 import { NavLink, Outlet, useNavigate, Link, useLocation } from "react-router-dom";
-import { Search, Github, Menu, ChevronRight, X, Moon, Sun } from "lucide-react";
+import { Search, Menu, ChevronRight, X, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { searchContent, SearchResult } from "@/lib/searchData";
 import { useTheme } from "@/components/ThemeProvider";
-import { DiscordIcon } from "@/components/icons/DiscordIcon";
 import { TableOfContents } from "@/components/TableOfContents";
 import froststrap from "@/assets/froststrap-logo.png";
 
@@ -308,12 +307,33 @@ export const DocsLayout = () => {
           <nav className="flex items-center gap-4">
             <Button asChild variant="ghost" size="icon" className="h-9 w-9">
               <a href="https://github.com/RealMeddsam/Froststrap" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                <Github className="h-5 w-5" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 30 30"
+                  style={{ fill: "#FFFFFF" }}
+                >
+                  <path d="M15,3C8.373,3,3,8.373,3,15c0,5.623,3.872,10.328,9.092,11.63C12.036,26.468,12,26.28,12,26.047v-2.051 c-0.487,0-1.303,0-1.508,0c-0.821,0-1.551-0.353-1.905-1.009c-0.393-0.729-0.461-1.844-1.435-2.526 c-0.289-0.227-0.069-0.486,0.264-0.451c0.615,0.174,1.125,0.596,1.605,1.222c0.478,0.627,0.703,0.769,1.596,0.769 c0.433,0,1.081-0.025,1.691-0.121c0.328-0.833,0.895-1.6,1.588-1.962c-3.996-0.411-5.903-2.399-5.903-5.098 c0-1.162,0.495-2.286,1.336-3.233C9.053,10.647,8.706,8.73,9.435,8c1.798,0,2.885,1.166,3.146,1.481C13.477,9.174,14.461,9,15.495,9 c1.036,0,2.024,0.174,2.922,0.483C18.675,9.17,19.763,8,21.565,8c0.732,0.731,0.381,2.656,0.102,3.594 c0.836,0.945,1.328,2.066,1.328,3.226c0,2.697-1.904,4.684-5.894,5.097C18.199,20.49,19,22.1,19,23.313v2.734 c0,0.104-0.023,0.179-0.035,0.268C23.641,24.676,27,20.236,27,15C27,8.373,21.627,3,15,3z"></path>
+                </svg>
               </a>
             </Button>
             <Button asChild variant="ghost" size="icon" className="h-9 w-9">
               <a href="https://discord.gg/BeCRubaU" target="_blank" rel="noopener noreferrer" aria-label="Discord">
-                <DiscordIcon />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  shapeRendering="geometricPrecision"
+                  textRendering="geometricPrecision"
+                  imageRendering="optimizeQuality"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  height="24"
+                  width="24"
+                  viewBox="0 0 512 365.467"
+                >
+                  <path
+                    fill="#fff"
+                    d="M378.186 365.028s-15.794-18.865-28.956-35.099c57.473-16.232 79.41-51.77 79.41-51.77-17.989 11.846-35.099 20.182-50.454 25.885-21.938 9.213-42.997 14.917-63.617 18.866-42.118 7.898-80.726 5.703-113.631-.438-25.008-4.827-46.506-11.407-64.494-18.867-10.091-3.947-21.059-8.774-32.027-14.917-1.316-.877-2.633-1.316-3.948-2.193-.877-.438-1.316-.878-1.755-.878-7.898-4.388-12.285-7.458-12.285-7.458s21.06 34.659 76.779 51.331c-13.163 16.673-29.395 35.977-29.395 35.977C36.854 362.395 0 299.218 0 299.218 0 159.263 63.177 45.633 63.177 45.633 126.354-1.311 186.022.005 186.022.005l4.388 5.264C111.439 27.645 75.461 62.305 75.461 62.305s9.653-5.265 25.886-12.285c46.945-20.621 84.236-25.885 99.592-27.64 2.633-.439 4.827-.878 7.458-.878 26.763-3.51 57.036-4.387 88.624-.878 41.68 4.826 86.43 17.111 132.058 41.68 0 0-34.66-32.906-109.244-55.281l6.143-7.019s60.105-1.317 122.844 45.628c0 0 63.178 113.631 63.178 253.585 0-.438-36.854 62.739-133.813 65.81l-.001.001zm-43.874-203.133c-25.006 0-44.75 21.498-44.75 48.262 0 26.763 20.182 48.26 44.75 48.26 25.008 0 44.752-21.497 44.752-48.26 0-26.764-20.182-48.262-44.752-48.262zm-160.135 0c-25.008 0-44.751 21.498-44.751 48.262 0 26.763 20.182 48.26 44.751 48.26 25.007 0 44.75-21.497 44.75-48.26.439-26.763-19.742-48.262-44.75-48.262z"
+                  />
+                </svg>
               </a>
             </Button>
             <div className="h-6 w-px bg-border" />
@@ -346,10 +366,12 @@ export const DocsLayout = () => {
 
         {/* Table of contents */}
         <aside
-          className="hidden xl:flex fixed top-16 z-30 h-[calc(100vh-4rem)] w-64 border-l border-border bg-sidebar p-8 overflow-hidden"
+          className="hidden xl:flex fixed top-16 z-30 h-[calc(100vh-4rem)] w-64 border-l border-border bg-sidebar p-6 overflow-y-auto"
           style={{ right: `${SCROLLBAR_WIDTH_PX}px` }}
         >
-          <TableOfContents />
+          <div className="w-full">
+            <TableOfContents />
+          </div>
         </aside>
 
         {/* External scrollbar */}
@@ -362,13 +384,17 @@ export const DocsLayout = () => {
         </div>
 
         {/* Main content */}
-        <div className="ml-0 md:ml-64 h-[calc(100vh-4rem)] flex" style={{ marginRight: `${TOC_WIDTH_PX + SCROLLBAR_WIDTH_PX}px` }}>
+        <div className="ml-0 md:ml-64 h-[calc(100vh-4rem)]">
           <main
             ref={mainScrollRef}
-            className="flex-1 pt-4 pl-4 overflow-y-auto no-scrollbar"
-            style={{ WebkitOverflowScrolling: "touch", height: "100%" }}
+            className="pt-4 pl-4 pr-8 overflow-y-auto no-scrollbar"
+            style={{ 
+              WebkitOverflowScrolling: "touch", 
+              height: "100%",
+              marginRight: `${TOC_WIDTH_PX + SCROLLBAR_WIDTH_PX}px`
+            }}
           >
-            <div className="w-full">
+            <div className="max-w-4xl">
               <Outlet />
             </div>
           </main>

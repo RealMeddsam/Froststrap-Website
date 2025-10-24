@@ -31,13 +31,25 @@ export const TableOfContents = () => {
 
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveId(entry.target.id);
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => (a.boundingClientRect.top > b.boundingClientRect.top ? 1 : -1));
+
+        if (visible.length > 0) {
+          setActiveId(visible[0].target.id);
+        } else {
+          const scrollY = window.scrollY;
+          const closestAbove = headings
+            .map((h) => document.getElementById(h.id))
+            .filter(Boolean)
+            .filter((el) => (el as HTMLElement).offsetTop < scrollY + 100)
+            .sort((a, b) => (b!.offsetTop - a!.offsetTop));
+          if (closestAbove.length > 0) {
+            setActiveId(closestAbove[0]!.id);
           }
-        });
+        }
       },
-      { rootMargin: "-20% 0px -35% 0px", threshold: 0.01 }
+      { rootMargin: "-10% 0px -80% 0px", threshold: [0, 0.1, 0.5, 1] }
     );
 
     headings.forEach((heading) => {
@@ -58,65 +70,31 @@ export const TableOfContents = () => {
   };
 
   return (
-    <aside className="hidden xl:block sticky top-0 h-[calc(100vh-4rem)] w-64 shrink-0 overflow-y-auto px-4 pt-4" aria-label="Table of contents">
-      <div className="rounded-md p-2">
-        <h3
-          className="mb-4 text-lg font-bold"
-          style={{ color: "hsl(var(--sidebar-foreground))" }}
-        >
-          On this page
-        </h3>
-
-        <nav className="space-y-2" aria-hidden={false}>
-          {headings.map((heading) => {
-            const indent = (heading.level - 1) * 0.75;
-            const isActive = activeId === heading.id;
-            return (
-              <a
-                key={heading.id}
-                href={`#${heading.id}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleClick(heading.id);
-                }}
-                className={`group flex items-start gap-2 rounded-md transition-colors text-base leading-snug ${
-                  isActive
-                    ? "font-semibold"
-                    : "text-muted-foreground hover:font-medium"
-                }`}
-                style={{
-                  paddingLeft: `${indent}rem`,
-                  color: isActive ? `hsl(var(--sidebar-primary))` : undefined,
-                }}
-                aria-current={isActive ? "true" : undefined}
-              >
-                <span
-                  className={`mt-1 block rounded-full transition-opacity ${
-                    isActive ? "opacity-100" : "opacity-0 group-hover:opacity-60"
-                  }`}
-                  style={{
-                    width: 6,
-                    height: 6,
-                    background: isActive ? "hsl(var(--sidebar-primary))" : "transparent",
-                    boxShadow: isActive ? "0 0 0 4px rgba(0,0,0,0.04)" : undefined,
-                    flex: "0 0 auto",
-                    marginTop: 6,
-                  }}
-                />
-                <span
-                  className="block truncate"
-                  style={{
-                    color: isActive ? `hsl(var(--sidebar-primary))` : undefined,
-                    textShadow: isActive ? "0 0 0 transparent" : undefined,
-                  }}
-                >
-                  {heading.text}
-                </span>
-              </a>
-            );
-          })}
-        </nav>
-      </div>
-    </aside>
+    <nav className="w-full">
+      <h4 className="font-semibold text-sm mb-4 text-left">On this page</h4>
+      <ul className="space-y-2">
+        {headings.map((heading) => (
+          <li
+            key={heading.id}
+            style={{ paddingLeft: `${(heading.level - 1) * 12}px` }}
+          >
+            <a
+              href={`#${heading.id}`}
+              onClick={(e) => {
+                e.preventDefault();
+                handleClick(heading.id);
+              }}
+              className={`block text-sm transition-colors hover:text-primary text-left ${
+                activeId === heading.id
+                  ? "text-primary font-medium"
+                  : "text-muted-foreground"
+              }`}
+            >
+              {heading.text}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
   );
 };
