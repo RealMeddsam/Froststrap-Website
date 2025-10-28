@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/froststrap-logo.png";
-import Github from "@/assets/github-mark.svg";
+import background from "@/assets/background.png";
 
 interface ReleaseData {
   version: string;
@@ -104,7 +104,7 @@ export default function Home() {
         `https://api.github.com/repos/${repoOwner}/${repoName}/releases/latest`,
         {
           headers: {
-            Authorization: `Bearer ${GITHUB_TOKEN}`,
+            Authorization: `${GITHUB_TOKEN}`,
             Accept: "application/json",
           },
         }
@@ -135,7 +135,20 @@ export default function Home() {
 
   return (
     <>
-      <div className="min-h-screen bg-background text-foreground">
+      <div className="relative min-h-screen text-foreground overflow-hidden">
+        {/* Background */}
+        <div
+          className="absolute inset-0 -z-10"
+          style={{
+            backgroundImage: `url(${background})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            filter: "blur(8px)",
+            transform: "scale(1.03)",
+          }}
+        />
+
         {/* Header */}
         <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
           <div className="container flex h-16 items-center justify-between px-6">
@@ -474,8 +487,10 @@ export default function Home() {
         </main>
 
         {/* Footer */}
-        <footer className="border-t border-border py-6 text-center text-sm text-muted-foreground">
-          &copy; 2025 Froststrap. MIT Licensed.
+        <footer className="w-full border-t border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 text-center text-sm text-muted-foreground py-6">
+          <p className="text-sm opacity-80">
+            © {new Date().getFullYear()} Froststrap, MIT License.
+          </p>
         </footer>
       </div>
     </>
