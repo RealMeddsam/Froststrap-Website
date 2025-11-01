@@ -10,6 +10,7 @@ import WhatIsFroststrap from "./pages/WhatIsFroststrap";
 import FAQ from "./pages/FAQ";
 import Installation from "./pages/guide/Installation";
 import Features from "./pages/guide/Features";
+import FastFlags from "./pages/guide/FastFlags";
 import Troubleshooting from "./pages/help/Troubleshooting";
 import Support from "./pages/help/Support";
 import NotFound from "./pages/NotFound";
@@ -30,6 +31,7 @@ const App = () => (
               <Route path="faq" element={<FAQ />} />
               <Route path="guide/installation" element={<Installation />} />
               <Route path="guide/features" element={<Features />} />
+              <Route path="guide/fastflags" element={<FastFlags />} />
               <Route path="help/troubleshooting" element={<Troubleshooting />} />
               <Route path="help/support" element={<Support />} />
             </Route>
