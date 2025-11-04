@@ -22,7 +22,8 @@ const App = () => (
     <ThemeProvider defaultTheme="dark">
       <TooltipProvider>
         <Toaster />
-        <BrowserRouter>
+  {/* Use Vite's BASE_URL so the router resolves routes under the repo subpath on GitHub Pages */}
+  <BrowserRouter basename={import.meta.env.BASE_URL}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/docs" element={<DocsLayout />}>
